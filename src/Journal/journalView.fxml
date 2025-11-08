@@ -1,36 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml"
-	fx:controller="Journal.JournalController" minHeight="0.0"
-	minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-	<children>
-		<ListView fx:id="journalEntriesList" layoutX="22.0"
-			layoutY="14.0" prefHeight="331.0" prefWidth="212.0" />
-		<TextArea fx:id="journalEntry" layoutX="245.0" layoutY="46.0"
-			prefHeight="266.0" prefWidth="346.0"
-			promptText="Write your entry here..." />
-		<TextField fx:id="entryTitle" layoutX="245.0" layoutY="13.0"
-			prefHeight="26.0" prefWidth="217.0" promptText="Entry title" />
-		<DatePicker fx:id="journalDate" layoutX="464.0"
-			layoutY="13.0" prefHeight="26.0" prefWidth="127.0" />
-		<ButtonBar fx:id="journalButtons" layoutX="268.0"
-			layoutY="322.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="34.0"
-			prefWidth="300.0">
-			<buttons>
-				<Button fx:id="journalSaveButton" mnemonicParsing="false"
-					text="Save Entry" />
-				<Button fx:id="journalEdit" mnemonicParsing="false"
-					text="Edit Entry" />
-				<Button fx:id="journalDeleteEntry" mnemonicParsing="false"
-					text="Delete Entry" />
-			</buttons>
-		</ButtonBar>
-	</children>
-</AnchorPane>
-            
+<ScrollPane fitToHeight="true" fitToWidth="true" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/25" fx:controller="Journal.JournalController">
+  <content>
+    <GridPane hgap="10" vgap="10">
+    <padding>
+    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+  </padding>
+
+    
+      <columnConstraints>
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="70" />
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="30" />
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints percentHeight="80" vgrow="ALWAYS" />
+        <RowConstraints percentHeight="20" vgrow="ALWAYS" />
+      </rowConstraints>
+
+      <!-- Lista de entradas -->
+      <ListView fx:id="entryList" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowSpan="2" GridPane.vgrow="ALWAYS" />
+
+      <!-- Área de entrada -->
+      <GridPane hgap="10" vgap="10" GridPane.columnIndex="0" GridPane.rowIndex="0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="ALWAYS" percentWidth="33.33" />
+          <ColumnConstraints hgrow="ALWAYS" percentWidth="33.33" />
+          <ColumnConstraints hgrow="ALWAYS" percentWidth="33.33" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints percentHeight="20" vgrow="ALWAYS" />
+          <RowConstraints percentHeight="10" vgrow="ALWAYS" />
+          <RowConstraints percentHeight="70" vgrow="ALWAYS" />
+        </rowConstraints>
+
+        <TextField fx:id="journalEntryTitle" promptText="Entry Title" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.vgrow="ALWAYS" />
+
+        <DatePicker fx:id="date" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.vgrow="ALWAYS" />
+
+        <TextArea fx:id="journalTextArea" promptText="Write your entry here..." GridPane.columnSpan="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS" />
+      </GridPane>
+
+      <!-- Botones -->
+      <HBox alignment="CENTER" spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="1">
+        <children>
+          <Button fx:id="journalAdd" text="Add Entry" />
+          <Button fx:id="journalEdit" text="Edit Entry" />
+          <Button fx:id="journalDelete" text="Delete Entry" />
+        </children>
+      </HBox>
+    </GridPane>
+  </content>
+</ScrollPane>

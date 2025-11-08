@@ -1,58 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml" minHeight="0.0"
-	minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-	<children>
-		<TextField fx:id="characterNameField" layoutX="23.0"
-			layoutY="22.0" promptText="Character Name" />
-		<TextField fx:id="characterClassField" layoutX="184.0"
-			layoutY="22.0" promptText="Character Class" />
-		<TextField fx:id="characterSpeciesField" layoutX="339.0"
-			layoutY="22.0" promptText="Character Species" />
-		<TextField fx:id="strField" alignment="CENTER"
-			layoutX="23.0" layoutY="73.0" prefHeight="26.0" prefWidth="56.0" />
-		<Label layoutX="37.0" layoutY="56.0" text="STR" />
-		<TextField fx:id="dexField" alignment="CENTER"
-			layoutX="98.0" layoutY="73.0" prefHeight="26.0" prefWidth="56.0" />
-		<Label layoutX="116.0" layoutY="56.0" text="DEX" />
-		<TextField fx:id="conField" alignment="CENTER"
-			layoutX="173.0" layoutY="73.0" prefHeight="26.0" prefWidth="56.0" />
-		<Label layoutX="190.0" layoutY="56.0" text="CON" />
-		<TextField fx:id="intField" alignment="CENTER"
-			layoutX="244.0" layoutY="73.0" prefHeight="26.0" prefWidth="56.0" />
-		<Label layoutX="259.0" layoutY="56.0" text="INT" />
-		<TextField fx:id="wisField" alignment="CENTER"
-			layoutX="311.0" layoutY="73.0" prefHeight="26.0" prefWidth="56.0" />
-		<Label layoutX="329.0" layoutY="56.0" text="WIS" />
-		<TextField fx:id="chaField" alignment="CENTER"
-			layoutX="386.0" layoutY="73.0" prefHeight="26.0" prefWidth="56.0" />
-		<Label layoutX="402.0" layoutY="56.0" text="CHA" />
-		<TextArea fx:id="characterEquipmentField" layoutX="16.0"
-			layoutY="108.0" prefHeight="251.0" prefWidth="119.0"
-			promptText="Equipment" />
-		<TextArea fx:id="characterBackstoryField" layoutX="143.0"
-			layoutY="108.0" prefHeight="251.0" prefWidth="142.0"
-			promptText="Backstory" />
-		<TextArea fx:id="characterSkillsField" layoutX="295.0"
-			layoutY="108.0" prefHeight="251.0" prefWidth="142.0"
-			promptText="Skills" />
-		<ListView fx:id="characterList" layoutX="450.0"
-			layoutY="56.0" prefHeight="218.0" prefWidth="142.0" />
-		<Button fx:id="characterAddButton" layoutX="456.0"
-			layoutY="281.0" mnemonicParsing="false" text="Add" />
-		<Button fx:id="characterEditButton" layoutX="543.0"
-			layoutY="281.0" mnemonicParsing="false" text="Edit" />
-		<Button fx:id="characterDeleteButton" layoutX="495.0"
-			layoutY="318.0" mnemonicParsing="false" text="Delete" />
-		<TextField fx:id="HP" alignment="CENTER" layoutX="495.0"
-			layoutY="22.0" prefHeight="26.0" prefWidth="42.0" promptText="HP" />
-		<TextField fx:id="MP" alignment="CENTER" layoutX="545.0"
-			layoutY="22.0" prefHeight="26.0" prefWidth="37.0" promptText="MP" />
-	</children>
-</AnchorPane>
-            
+<ScrollPane fitToHeight="true" fitToWidth="true" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/25" fx:controller="CharacterSheet.CharacterController">
+  <content>
+    <GridPane hgap="10" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" vgap="10">
+      <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+      </padding>
+
+      <columnConstraints>
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="33.33" />
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="33.33" />
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="33.33" />
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints percentHeight="25" vgrow="ALWAYS" />
+        <RowConstraints percentHeight="25" vgrow="ALWAYS" />
+        <RowConstraints percentHeight="25" vgrow="ALWAYS" />
+        <RowConstraints percentHeight="25" vgrow="ALWAYS" />
+      </rowConstraints>
+
+      <HBox spacing="10" GridPane.columnSpan="3" GridPane.rowIndex="0">
+        <children>
+          <TextField fx:id="characterName" promptText="Name" HBox.hgrow="ALWAYS" />
+          <TextField fx:id="characterClass" promptText="Class" HBox.hgrow="ALWAYS" />
+          <TextField fx:id="characterSpecies" promptText="Species" HBox.hgrow="ALWAYS" />
+          <TextField fx:id="hp" maxWidth="60" promptText="HP" />
+          <TextField fx:id="mp" maxWidth="60" promptText="MP" />
+        </children>
+      </HBox>
+
+      <HBox spacing="10" GridPane.columnSpan="3" GridPane.rowIndex="1">
+        <children>
+          <VBox>
+            <children><Label text="STR" /><TextField fx:id="strField" /></children>
+          </VBox>
+          <VBox>
+            <children><Label text="DEX" /><TextField fx:id="dexField" /></children>
+          </VBox>
+          <VBox>
+            <children><Label text="CON" /><TextField fx:id="conField" /></children>
+          </VBox>
+          <VBox>
+            <children><Label text="INT" /><TextField fx:id="intField" /></children>
+          </VBox>
+          <VBox>
+            <children><Label text="WIS" /><TextField fx:id="wisField" /></children>
+          </VBox>
+          <VBox>
+            <children><Label text="CHA" /><TextField fx:id="chaField" /></children>
+          </VBox>
+        </children>
+      </HBox>
+
+      <HBox spacing="10" GridPane.columnSpan="3" GridPane.rowIndex="2">
+        <children>
+          <TextArea fx:id="skillsEquipmentArea" promptText="Skills and Equipment" HBox.hgrow="ALWAYS" />
+          <TextArea fx:id="backstoryArea" promptText="Backstory" HBox.hgrow="ALWAYS" />
+          <ListView fx:id="characterList" HBox.hgrow="ALWAYS" />
+        </children>
+      </HBox>
+
+      <HBox alignment="CENTER" spacing="10" GridPane.columnSpan="3" GridPane.rowIndex="3">
+        <children>
+          <Button fx:id="addCharacterButton" text="Add Character" />
+          <Button fx:id="editCharacterButton" text="Edit Character" />
+          <Button fx:id="deleteCharacterButton" text="Delete Character" />
+        </children>
+      </HBox>
+    </GridPane>
+  </content>
+</ScrollPane>
