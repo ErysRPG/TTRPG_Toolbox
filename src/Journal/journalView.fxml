@@ -1,0 +1,36 @@
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.ButtonBar?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+	fx:controller="Journal.JournalController" minHeight="0.0"
+	minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+	<children>
+		<ListView fx:id="journalEntriesList" layoutX="22.0"
+			layoutY="14.0" prefHeight="331.0" prefWidth="212.0" />
+		<TextArea fx:id="journalEntry" layoutX="245.0" layoutY="46.0"
+			prefHeight="266.0" prefWidth="346.0"
+			promptText="Write your entry here..." />
+		<TextField fx:id="entryTitle" layoutX="245.0" layoutY="13.0"
+			prefHeight="26.0" prefWidth="217.0" promptText="Entry title" />
+		<DatePicker fx:id="journalDate" layoutX="464.0"
+			layoutY="13.0" prefHeight="26.0" prefWidth="127.0" />
+		<ButtonBar fx:id="journalButtons" layoutX="268.0"
+			layoutY="322.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="34.0"
+			prefWidth="300.0">
+			<buttons>
+				<Button fx:id="journalSaveButton" mnemonicParsing="false"
+					text="Save Entry" />
+				<Button fx:id="journalEdit" mnemonicParsing="false"
+					text="Edit Entry" />
+				<Button fx:id="journalDeleteEntry" mnemonicParsing="false"
+					text="Delete Entry" />
+			</buttons>
+		</ButtonBar>
+	</children>
+</AnchorPane>
+            

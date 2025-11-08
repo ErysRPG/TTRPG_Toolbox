@@ -1,0 +1,58 @@
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" minHeight="0.0"
+	minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+	<children>
+		<TextField fx:id="characterNameField" layoutX="23.0"
+			layoutY="22.0" promptText="Character Name" />
+		<TextField fx:id="characterClassField" layoutX="184.0"
+			layoutY="22.0" promptText="Character Class" />
+		<TextField fx:id="characterSpeciesField" layoutX="339.0"
+			layoutY="22.0" promptText="Character Species" />
+		<TextField fx:id="strField" alignment="CENTER"
+			layoutX="23.0" layoutY="73.0" prefHeight="26.0" prefWidth="56.0" />
+		<Label layoutX="37.0" layoutY="56.0" text="STR" />
+		<TextField fx:id="dexField" alignment="CENTER"
+			layoutX="98.0" layoutY="73.0" prefHeight="26.0" prefWidth="56.0" />
+		<Label layoutX="116.0" layoutY="56.0" text="DEX" />
+		<TextField fx:id="conField" alignment="CENTER"
+			layoutX="173.0" layoutY="73.0" prefHeight="26.0" prefWidth="56.0" />
+		<Label layoutX="190.0" layoutY="56.0" text="CON" />
+		<TextField fx:id="intField" alignment="CENTER"
+			layoutX="244.0" layoutY="73.0" prefHeight="26.0" prefWidth="56.0" />
+		<Label layoutX="259.0" layoutY="56.0" text="INT" />
+		<TextField fx:id="wisField" alignment="CENTER"
+			layoutX="311.0" layoutY="73.0" prefHeight="26.0" prefWidth="56.0" />
+		<Label layoutX="329.0" layoutY="56.0" text="WIS" />
+		<TextField fx:id="chaField" alignment="CENTER"
+			layoutX="386.0" layoutY="73.0" prefHeight="26.0" prefWidth="56.0" />
+		<Label layoutX="402.0" layoutY="56.0" text="CHA" />
+		<TextArea fx:id="characterEquipmentField" layoutX="16.0"
+			layoutY="108.0" prefHeight="251.0" prefWidth="119.0"
+			promptText="Equipment" />
+		<TextArea fx:id="characterBackstoryField" layoutX="143.0"
+			layoutY="108.0" prefHeight="251.0" prefWidth="142.0"
+			promptText="Backstory" />
+		<TextArea fx:id="characterSkillsField" layoutX="295.0"
+			layoutY="108.0" prefHeight="251.0" prefWidth="142.0"
+			promptText="Skills" />
+		<ListView fx:id="characterList" layoutX="450.0"
+			layoutY="56.0" prefHeight="218.0" prefWidth="142.0" />
+		<Button fx:id="characterAddButton" layoutX="456.0"
+			layoutY="281.0" mnemonicParsing="false" text="Add" />
+		<Button fx:id="characterEditButton" layoutX="543.0"
+			layoutY="281.0" mnemonicParsing="false" text="Edit" />
+		<Button fx:id="characterDeleteButton" layoutX="495.0"
+			layoutY="318.0" mnemonicParsing="false" text="Delete" />
+		<TextField fx:id="HP" alignment="CENTER" layoutX="495.0"
+			layoutY="22.0" prefHeight="26.0" prefWidth="42.0" promptText="HP" />
+		<TextField fx:id="MP" alignment="CENTER" layoutX="545.0"
+			layoutY="22.0" prefHeight="26.0" prefWidth="37.0" promptText="MP" />
+	</children>
+</AnchorPane>
+            
