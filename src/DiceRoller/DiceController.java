@@ -21,29 +21,43 @@ public class DiceController {
 	
 	public void roll() {
 		// get text from field
-		String diceNotation = diceNotationField.getText();
-		
-		// split dice to separate size from quantity
-		String [] diceSplit = diceNotation.split("d");
-		String diceQuantity = diceSplit[0];
-		String diceSize = diceSplit[1];
-		
-		// create random number based on the size of the dice
-		Random rand = new Random();
-		int randomNumber = rand.nextInt(1, Integer.parseInt(diceSize) + 1);
-		
-		// Create an array to store the result of each dice
-		int diceResultArray[] = new int[Integer.parseInt(diceQuantity)];
-		
-		// for each dice in the array, choose a random number and set the labels
-		for (int dice : diceResultArray) {
-			int diceResult = Integer.parseInt(diceQuantity) * randomNumber;
-			diceResultArray[dice] = dice;
-			rollResult.setText(String.valueOf(diceResult));
+		try {
+			String diceNotation = diceNotationField.getText();
+			// split dice to separate size from quantity
+			String [] diceSplit = diceNotation.split("d");
+			String diceQuantity = diceSplit[0];
+			String diceSize = diceSplit[1];
+			
+			// create random number based on the size of the dice
+			Random rand = new Random();
+			int randomNumber = rand.nextInt(1, Integer.parseInt(diceSize) + 1);
+			
+			// Create an array to store the result of each dice
+			int diceResultArray[] = new int[Integer.parseInt(diceQuantity)];
+			
+			// this variable will generate a random number rolling the dice
+			int randomResultInDice= Integer.parseInt(diceQuantity) * randomNumber;;
+
+			// generates a random number on the dice and
+			// stores the separate values of each dice's results
+			
+			for (int i = 0; i < diceResultArray.length; i++) {
+				diceResultArray[i] = Integer.parseInt(diceQuantity) * randomNumber;
+				System.out.println(Arrays.toString(diceResultArray));
+			}
+			
+			rollResult.setText(String.valueOf(randomResultInDice));
 			separatedDice.setText(String.valueOf(Arrays.toString(diceResultArray)));
+			
+		} catch (Exception e) {
+			rollResult.setText("Introduce dice notation");
+		}
+		
+		
+		
+			
 		}
 		
 	
 		
 	}
-}

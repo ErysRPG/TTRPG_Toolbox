@@ -21,7 +21,7 @@
     <RowConstraints maxHeight="153.6000274658203" minHeight="10.0" prefHeight="153.6000274658203" vgrow="ALWAYS" />
   </rowConstraints>
    <children>
-      <TextField fx:id="diceNotationField" alignment="CENTER" prefHeight="26.0" prefWidth="126.0" promptText="Introduce dice notation" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+      <TextField fx:id="diceNotationField" alignment="CENTER" onAction="#roll" prefHeight="26.0" prefWidth="126.0" promptText="Introduce dice notation" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
          <font>
             <Font size="13.0" />
          </font></TextField>
