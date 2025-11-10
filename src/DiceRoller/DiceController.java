@@ -25,78 +25,104 @@ public class DiceController {
 
 			// get text from field
 			String diceNotation = diceNotationField.getText();
+
 			// Use a regex tp detect dice notation
-			Pattern p = Pattern.compile("([1-9]\\d*)?d([1-9]\\d*)([/x][1-9]\\d*)?([+-]\\d+)?");
-			Matcher m = p.matcher(diceNotation);
+			Pattern regex = Pattern.compile("(\\d+)?d(\\d+)(?:([\\+\\*\\/\\-])(\\d+))?");
+			Matcher m = regex.matcher(diceNotation);
 
 			String diceQuantity = "";
 			String diceSize = "";
 			String diceSign = "";
 			String diceModifier = "";
-			
-			if (m.matches()) {
-				diceQuantity = m.group(1);
-				diceSize = m.group(2);
-				diceSign = m.group(3);
-				diceModifier = m.group(4);
-			} else {
-				rollResult.setText("Introduce dice notation");
-			}
-			
-			
 
 			// Call Random to create a random number
 			Random rand = new Random();
 
-			// Create an array to store the result of each dice
-			int diceResultArray[] = new int[Integer.parseInt(diceQuantity)];
+			
+			
+			// regex matcher check
+			if (!m.matches()) {
+				rollResult.setText("Intruduce a valid dice notation");
+			} else if (m.matches()) {
+				diceQuantity = m.group(1);
+				diceSize = m.group(2);
 
-			// this variable will generate a random number rolling the dice
-			int randomResultInDice = 0;
+				// if the dice quantity is null is set to 1
+				if (diceQuantity == null || diceQuantity.isEmpty()) {
+					diceQuantity = "1";
+				}
+				
+				// Create an array to store the result of each dice
+				int diceResultArray[] = new int[Integer.parseInt(diceQuantity)];
 
-			// this variable stores the total result
-			int total = 0;
+				// this variable will generate a random number rolling the dice
+				int randomResultInDice = 0;
 
-			for (int i = 0; i < Integer.parseInt(diceQuantity); i++) {
-				// generates a random number on the dice,
-				randomResultInDice = rand.nextInt(1, Integer.parseInt(diceSize) + 1);
-				// stores the separate values of each dice's results in an array
-				diceResultArray[i] = randomResultInDice;
-				// sums the result of the separate dice
-				total += randomResultInDice;
+				// this variable stores the total result
+				int total = 0;
+				
+				for (int i = 0; i < Integer.parseInt(diceQuantity); i++) {
+					// generates a random number on the dice,
+					randomResultInDice = rand.nextInt(1, Integer.parseInt(diceSize) + 1);
+					// stores the separate values of each dice's results in an array
+					diceResultArray[i] = randomResultInDice;
+					// sums the result of the separate dice
+					total += randomResultInDice;
+				}
+
+				
+				// if there's no sign the string stays empty, else, the regex group is
+				// recognized and the corresponding operation is performed
+				if (diceSign == null || diceSign.isEmpty() && diceModifier == null || diceModifier.isEmpty()) {
+					diceSign = "";
+					diceModifier = "";
+				} else {
+					diceSign = m.group(3);
+					diceModifier = m.group(4);
+
+					// stores the total result of the dice plus the operation corresponding to the
+					// modifier
+					int totalMod = 0;
+
+					switch (diceSign) {
+					case "+":
+						totalMod = total + Integer.parseInt(diceModifier);
+						rollResult.setText(String.valueOf(totalMod));
+						separatedDice.setText(String.valueOf(Arrays.toString(diceResultArray)));
+						break;
+					case "-":
+						totalMod = total - Integer.parseInt(diceModifier);
+						rollResult.setText(String.valueOf(totalMod));
+						separatedDice.setText(String.valueOf(Arrays.toString(diceResultArray)));
+						break;
+					case "*":
+						totalMod = total * Integer.parseInt(diceModifier);
+						rollResult.setText(String.valueOf(totalMod));
+						separatedDice.setText(String.valueOf(Arrays.toString(diceResultArray)));
+						break;
+					case "/":
+						if (Integer.parseInt(diceModifier) != 0) {
+							totalMod = total / Integer.parseInt(diceModifier);
+							rollResult.setText(String.valueOf(totalMod));
+							separatedDice.setText(String.valueOf(Arrays.toString(diceResultArray)));
+						} else {
+							totalMod = total;
+							rollResult.setText(String.valueOf(total));
+						}
+						
+						break;
+					default:
+						rollResult.setText(String.valueOf(total));
+						separatedDice.setText(String.valueOf(Arrays.toString(diceResultArray)));
+						break;
+					}
+				}
+
 			}
-			// stores the total result of the dice plus the operation corresponding to the
-			// modifier
-			int totalMod = 0;
 
-			switch (diceSign) {
-			case "+":
-				totalMod += total + Integer.parseInt(diceModifier);
-				rollResult.setText(String.valueOf(totalMod));
-				separatedDice.setText(String.valueOf(Arrays.toString(diceResultArray)));
-				break;
-			case "-":
-				totalMod += total - Integer.parseInt(diceModifier);
-				rollResult.setText(String.valueOf(totalMod));
-				separatedDice.setText(String.valueOf(Arrays.toString(diceResultArray)));
-				break;
-			case "*":
-				totalMod += total * Integer.parseInt(diceModifier);
-				rollResult.setText(String.valueOf(totalMod));
-				separatedDice.setText(String.valueOf(Arrays.toString(diceResultArray)));
-				break;
-			case "/":
-				totalMod += total / Integer.parseInt(diceModifier);
-				rollResult.setText(String.valueOf(totalMod));
-				separatedDice.setText(String.valueOf(Arrays.toString(diceResultArray)));
-				break;
-			default:
-				rollResult.setText(String.valueOf(total));
-				separatedDice.setText(String.valueOf(Arrays.toString(diceResultArray)));
-				break;
-			}
 		} catch (Exception e) {
 			rollResult.setText(e.toString());
+			System.out.println(e);
 		}
 	}
 }
