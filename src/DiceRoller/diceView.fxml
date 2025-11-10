@@ -40,7 +40,7 @@
                   <Font size="26.0" />
                </font>
                <GridPane.margin>
-                  <Insets />
+                  <Insets left="50.0" />
                </GridPane.margin>
             </Label>
             <Label fx:id="separatedDice" GridPane.rowIndex="1">
@@ -48,7 +48,7 @@
                   <Font size="26.0" />
                </font>
                <GridPane.margin>
-                  <Insets />
+                  <Insets left="50.0" />
                </GridPane.margin>
             </Label>
          </children>
