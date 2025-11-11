@@ -21,12 +21,12 @@
     <RowConstraints maxHeight="153.6000274658203" minHeight="10.0" prefHeight="153.6000274658203" vgrow="ALWAYS" />
   </rowConstraints>
    <children>
-      <TextField fx:id="diceNotationField" alignment="CENTER" onAction="#roll" prefHeight="26.0" prefWidth="126.0" promptText="Introduce dice notation" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+      <TextField fx:id="diceNotationField" alignment="CENTER" onAction="#roll" prefHeight="27.0" prefWidth="264.0" promptText="Introduce dice notation" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
          <font>
             <Font size="13.0" />
          </font></TextField>
       <Button fx:id="diceRollButton" mnemonicParsing="false" onAction="#roll" prefHeight="56.0" prefWidth="97.0" text="Roll!" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-      <GridPane GridPane.columnIndex="1">
+      <GridPane GridPane.columnSpan="2147483647">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
@@ -35,20 +35,20 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label fx:id="rollResult">
+            <Label fx:id="rollResult" alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="314.0" text="1d20, 2d12, 3d6+2..." textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                <font>
-                  <Font size="26.0" />
+                  <Font size="28.0" />
                </font>
                <GridPane.margin>
-                  <Insets left="50.0" />
+                  <Insets />
                </GridPane.margin>
             </Label>
-            <Label fx:id="separatedDice" GridPane.rowIndex="1">
+            <Label fx:id="separatedDice" alignment="CENTER" contentDisplay="CENTER" prefHeight="38.0" prefWidth="304.0" text="[Dice results]" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                <font>
                   <Font size="26.0" />
                </font>
                <GridPane.margin>
-                  <Insets left="50.0" />
+                  <Insets />
                </GridPane.margin>
             </Label>
          </children>

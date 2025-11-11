@@ -43,7 +43,7 @@ public class DiceController {
 
 			// regex matcher check
 			if (!m.matches()) {
-				rollResult.setText("Intruduce a valid dice notation");
+				rollResult.setText("Intruduce dice notation");
 			} else if (m.matches()) {
 				diceQuantity = m.group(1);
 				diceSize = m.group(2);
@@ -115,7 +115,9 @@ public class DiceController {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("Exception: " + e.getMessage());
+			rollResult.setText("Intruduce dice notation")
+			;
+			
 		}
 
 	}
