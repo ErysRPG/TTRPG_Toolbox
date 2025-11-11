@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CharacterSheet.CharacterController">
   <columnConstraints>
       <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
     <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
@@ -70,7 +70,7 @@
          </GridPane.margin></TextArea>
       <ListView fx:id="characterList" prefHeight="529.0" prefWidth="150.0" GridPane.columnIndex="9" GridPane.columnSpan="2" GridPane.rowSpan="5" />
       <TextArea fx:id="equipmentArea" prefHeight="143.0" prefWidth="179.0" promptText="Equipment" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="2" GridPane.rowSpan="2" />
-      <GridPane GridPane.columnSpan="8" GridPane.rowIndex="1">
+      <GridPane fx:id="statArea" GridPane.columnSpan="8" GridPane.rowIndex="1">
         <columnConstraints>
             <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
@@ -84,9 +84,9 @@
       </GridPane>
       <ButtonBar prefHeight="127.0" prefWidth="242.0" GridPane.columnIndex="2" GridPane.columnSpan="5" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.rowSpan="2147483647" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
         <buttons>
-          <Button fx:id="addCharacter" mnemonicParsing="false" text="Add Character" />
-            <Button fx:id="editCharacter" mnemonicParsing="false" text="Edit Character" />
-            <Button fx:id="deleteCharacter" mnemonicParsing="false" text="Delete Character" />
+          <Button fx:id="addCharacter" mnemonicParsing="false" onAction="#addCharacter" text="Add Character" />
+            <Button fx:id="editCharacter" mnemonicParsing="false" onAction="#editCharacter" text="Edit Character" />
+            <Button fx:id="deleteCharacter" mnemonicParsing="false" onAction="#deleteCharacter" text="Delete Character" />
         </buttons>
       </ButtonBar>
       <HBox prefHeight="120.0" prefWidth="227.0" GridPane.columnIndex="7" GridPane.columnSpan="2">
@@ -96,12 +96,12 @@
                   <Insets right="10.0" top="39.0" />
                </HBox.margin>
             </TextField>
-            <Button fx:id="addStat" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="77.0" text="Add Stat" textAlignment="CENTER">
+            <Button fx:id="addStat" contentDisplay="CENTER" mnemonicParsing="false" onAction="#createStat" prefHeight="26.0" prefWidth="77.0" text="Add Stat" textAlignment="CENTER">
                <HBox.margin>
                   <Insets right="10.0" top="39.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="deleteStat" mnemonicParsing="false" prefHeight="26.0" prefWidth="78.0" text="Delete Stat">
+            <Button fx:id="deleteStat" mnemonicParsing="false" onAction="#deleteStat" prefHeight="26.0" prefWidth="78.0" text="Delete Stat">
                <HBox.margin>
                   <Insets right="10.0" top="39.0" />
                </HBox.margin>
