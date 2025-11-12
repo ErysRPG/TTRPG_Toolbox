@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<ScrollPane fitToHeight="true" fitToWidth="true" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/25" fx:controller="Journal.JournalController">
+<ScrollPane fitToHeight="true" fitToWidth="true" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Journal.JournalController">
   <content>
     <GridPane hgap="10" vgap="10">
     <padding>
@@ -58,6 +58,7 @@
           <Button fx:id="journalAdd" text="Add Entry" />
           <Button fx:id="journalEdit" text="Edit Entry" />
           <Button fx:id="journalDelete" text="Delete Entry" />
+               <Button fx:id="searchEntry" mnemonicParsing="false" text="Search entry by Name" />
         </children>
       </HBox>
     </GridPane>

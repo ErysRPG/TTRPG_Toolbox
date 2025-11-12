@@ -32,7 +32,7 @@
       </rowConstraints>
 
 
-      <Label fx:id="tableResult" prefHeight="50.0" prefWidth="2.0" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+      <Label fx:id="tableResult" prefHeight="50.0" prefWidth="550.0" GridPane.halignment="CENTER" GridPane.rowIndex="2">
         <font>
           <Font size="34.0" />
         </font>
@@ -48,10 +48,11 @@
 
       <HBox alignment="CENTER" spacing="10" GridPane.rowIndex="3">
         <children>
-          <Button fx:id="tableAddButton" text="Add table" />
-          <Button fx:id="tableEditButton" text="Edit table" />
-          <Button fx:id="deleteTableButton" text="Delete table" />
-          <Button fx:id="tableRollButton" text="Roll!" />
+          <Button fx:id="tableAddButton" onAction="#addTable" text="Add table" />
+          <Button fx:id="tableEditButton" onAction="#editTable" text="Edit table" />
+          <Button fx:id="deleteTableButton" onAction="#deleteTable" text="Delete table" />
+               <Button fx:id="searchTable" mnemonicParsing="false" onAction="#searchTable" text=" Search Table by Title" />
+          <Button fx:id="tableRollButton" onAction="#rollTable" text="Roll!" />
         </children>
       </HBox>
     <TextField fx:id="tableTitle" promptText="Table Title" />
