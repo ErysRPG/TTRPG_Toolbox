@@ -32,7 +32,7 @@
       </rowConstraints>
 
 
-      <Label fx:id="tableResult" prefHeight="50.0" prefWidth="550.0" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+      <Label fx:id="tableResult" alignment="CENTER" prefHeight="50.0" prefWidth="550.0" GridPane.halignment="CENTER" GridPane.rowIndex="2">
         <font>
           <Font size="34.0" />
         </font>
@@ -41,7 +41,7 @@
 
       <HBox spacing="10" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
         <children>
-          <TextArea fx:id="tableItems" promptText="Enter items separated by commas (,)" HBox.hgrow="ALWAYS" />
+          <TextArea fx:id="tableItems" promptText="Enter items separated by commas and add a space after them, like this: (, ), " HBox.hgrow="ALWAYS" />
           <ListView fx:id="tableList" HBox.hgrow="ALWAYS" />
         </children>
       </HBox>

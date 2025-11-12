@@ -1,6 +1,7 @@
 package RandomTables;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Spliterator;
 
@@ -83,35 +84,29 @@ public class tablesController {
 				// gets chosen table's items and converts them to string
 				String chosenTableItems = chosenTable.getItemList().toString();
 				// removes array brackets
-				String removedBrackets = chosenTableItems.replaceAll("\\[\\]", "");
+				String removedBrackets = chosenTableItems.replaceAll("[\\[\\]]", "");
 				
 				
 				// splits the created array by commas
 				String [] splitArray = removedBrackets.split(", ");
-				
+				System.out.println(Arrays.toString(splitArray));
 				
 				// random number that will choose an index from the array
 				Random rand = new Random();
-				// chooses a random item from the table's items
+				// chooses a random index from the table's items
 				int randomItemFromTable = rand.nextInt(0, splitArray.length);
-				
+				// chooses the value of the array based in the selected index
 				String chosenItem = splitArray[randomItemFromTable];
 				
-				
-				System.out.println(chosenItem);
-				
-				
-				
+				// sets the chosen item in the label
 				tableResult.setText(String.valueOf(chosenItem));
 			}
 			
 			
 		} catch (Exception e) {
-			tableResult.setText("Select a table from the list");
+			e.printStackTrace();
 		}
-		
-		
-		
+
 	}
 	
 	public void searchTable() {
