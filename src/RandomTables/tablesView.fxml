@@ -50,6 +50,7 @@
         <children>
           <Button fx:id="tableAddButton" onAction="#addTable" text="Add table" />
           <Button fx:id="tableEditButton" onAction="#editTable" text="Edit table" />
+               <Button fx:id="saveTable" onAction="#saveTable" text="Save edited table" />
           <Button fx:id="deleteTableButton" onAction="#deleteTable" text="Delete table" />
                <Button fx:id="searchTable" mnemonicParsing="false" onAction="#searchTable" text=" Search Table by Title" />
           <Button fx:id="tableRollButton" onAction="#rollTable" text="Roll!" />
