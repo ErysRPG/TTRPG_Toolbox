@@ -1,10 +1,13 @@
 package RandomTables;
 
 import java.util.ArrayList;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 import java.util.Spliterator;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -82,18 +85,22 @@ public class tablesController {
 	
 	public void saveTable() {
 		try {
-			if (tableList == null) {
-				tableResult.setText("Add a table first");
+			// if no content is present or no table is selected, notify the user. Else, proceed with the else block
+			if (tableList == null || tableList.getSelectionModel().getSelectedItem() == null) {
+				tableResult.setText("Add or select a table first");
 			} else {
-				String getNewTitle = tableTitle.getText();
+				//adds to an array the content of the text area
 				ArrayList<String> getNewItems = new ArrayList<String>();
 				getNewItems.add(String.valueOf(tableItems.getText()));
 				
-				tableList.getSelectionModel().getSelectedItem().setTitle(getNewTitle);
+				// adds the new title and items to the list
+				tableList.getSelectionModel().getSelectedItem().setTitle(tableTitle.getText());
 				tableList.getSelectionModel().getSelectedItem().setItemList(getNewItems);
+				// updates the list content
+				tableList.refresh();
 				}
 			} catch (Exception e) {
-				tableResult.setText("Add a table first");
+				tableResult.setText("Add or select a table first");
 			}	
 		
 				
@@ -102,7 +109,8 @@ public class tablesController {
 	public void deleteTable() {
 		
 		try {
-			if (tableList == null) {
+			// check if content is empty. If not, proceed with the else block
+			if (tableList == null || tableList.getSelectionModel().getSelectedItem() == null) {
 				tableResult.setText("Select a table from the list");
 			} else {
 				// select the item from the list
@@ -118,15 +126,11 @@ public class tablesController {
 	public void rollTable() {
 
 		try {
-			// get title and content from field
-			String title = tableTitle.getText();
-			String itemAreaContent = tableItems.getText();
 
 			// check if content is empty. If not, proceed with the else block
 
-			if (title == null || title.isEmpty() || itemAreaContent == null || itemAreaContent.isEmpty()
-					|| tableList == null) {
-				tableResult.setText("Select a table from the list");
+			if (tableList.getSelectionModel().getSelectedItem() == null) {
+				tableResult.setText("Add or select a table first");
 			} else {
 				// store a chosen table from the List
 				RandomTable chosenTable = tableList.getSelectionModel().getSelectedItem();
@@ -158,22 +162,30 @@ public class tablesController {
 	}
 
 	public void searchTable() {
+		// gets table title
 		String title = tableTitle.getText();
 
 		// check if content is empty. If not, proceed with the else block
-
 		if (title == null || title.isEmpty() || tableList == null) {
 			tableResult.setText("Introduce a title to search for tables");
 		} else {
-			// iterate through the table list. If the list contains the title, selects it and clears the rest.
+			// iterate through the list. If the list contains coincidences, show them
 			ObservableList<RandomTable> list = tableList.getItems();
 			for (RandomTable table : list) {
 			     if(list.contains(table.getTitle())) {
-			    	 tableList.getSelectionModel().selectFirst();
-			    	
+			    	 Pattern regex = Pattern.compile("^[a-zA-Z0-9 ]*$");
+			    	 Matcher m = regex.matcher(title);
+			    	 
+			    	 
+			    	 }
 			     }
 			 }
 		}
-	}
 	
+	private void matchCoincidences() {
+		// gets table title
+		String title = tableTitle.getText();
+		
+		
+	}
 }
