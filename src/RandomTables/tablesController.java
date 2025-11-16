@@ -173,6 +173,7 @@ public class tablesController {
 
 			// check if content is empty. If not, proceed with the else block
 			if (title == null || title.isEmpty() || tableList == null) {
+				
 				tableResult.setText("Introduce a title to search for tables");
 			} else {
 				// Creates an original list and another one that will store the results.
@@ -189,11 +190,25 @@ public class tablesController {
 
 				if (filteredList.isEmpty()) {
 					tableResult.setText("No coincidences found");
+				
 				} else {
 					// if the filtered list has items, those are shown in the screen
 					tableList.setItems(filteredList);
 				
 				}
+				// restores the original list if the title is empty
+				tableTitle.textProperty().addListener((obs, oldVal, newVal) -> {
+				    if (newVal.isEmpty()) {
+				        tableList.setItems(list);
+				        
+				    }
+				});
+
+
+
+
+				
+				
 
 			}
 

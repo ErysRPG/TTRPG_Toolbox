@@ -78,7 +78,7 @@ public class DiceController {
 				// modifier
 				int totalMod = 0;
 
-				// based on the sign, adds, substracts, multiplies or divides the modifier
+				// based on the sign, adds, substracts, multiplies or divides the modifier and sets the labels
 				switch (diceSign) {
 				case "+":
 					totalMod = total + Integer.parseInt(diceModifier);
