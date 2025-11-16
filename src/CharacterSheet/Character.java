@@ -3,6 +3,7 @@ package CharacterSheet;
 import java.util.ArrayList;
 
 public class Character {
+
 private String name;
 private String CharacterClass;
 private String species;
@@ -56,5 +57,8 @@ public void setStats(ArrayList<Stat> stats) {
 	this.stats = stats;
 }
 
-
+@Override
+public String toString() {
+	return name;
+}
 }

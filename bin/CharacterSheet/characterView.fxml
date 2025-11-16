@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
@@ -11,6 +12,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
 <GridPane xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CharacterSheet.CharacterController">
   <columnConstraints>
@@ -93,7 +95,7 @@
          <GridPane.margin>
             <Insets right="10.0" />
          </GridPane.margin></TextArea>
-      <GridPane fx:id="statArea" GridPane.columnSpan="8" GridPane.rowIndex="1">
+      <GridPane fx:id="statArea" GridPane.columnSpan="9" GridPane.rowIndex="1">
         <columnConstraints>
             <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
@@ -105,17 +107,22 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
         </rowConstraints>
       </GridPane>
-      <ButtonBar prefHeight="127.0" prefWidth="242.0" GridPane.columnSpan="7" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.rowSpan="2147483647" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+      <ButtonBar prefHeight="143.0" prefWidth="886.0" GridPane.columnIndex="4" GridPane.columnSpan="6" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.rowSpan="2147483647" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
         <buttons>
-          <Button fx:id="addCharacter" mnemonicParsing="false" onAction="#addCharacter" text="Add Character" />
-            <Button fx:id="editCharacter" mnemonicParsing="false" onAction="#editCharacter" text="Edit Character" />
-            <Button fx:id="deleteCharacter" mnemonicParsing="false" onAction="#deleteCharacter" text="Delete Character" />
-            <Button mnemonicParsing="false" text="Search by Name" />
+          <Button fx:id="addCharacter" mnemonicParsing="false" onAction="#addCharacter" text="Add" />
+            <Button fx:id="saveCharacter" mnemonicParsing="false" text="Save" />
+            <Button fx:id="editCharacter" mnemonicParsing="false" onAction="#editCharacter" text="Edit" />
+            <Button fx:id="deleteCharacter" mnemonicParsing="false" onAction="#deleteCharacter" text="Delete" />
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="26.0" text="Search name" />
         </buttons>
       </ButtonBar>
       <TextArea fx:id="backstoryArea" prefHeight="221.0" prefWidth="223.0" promptText="Backstory" GridPane.columnIndex="6" GridPane.columnSpan="3" GridPane.rowIndex="2" GridPane.rowSpan="2">
          <GridPane.margin>
             <Insets right="10.0" />
          </GridPane.margin></TextArea>
+      <Label fx:id="infoLabel" alignment="CENTER" prefHeight="54.0" prefWidth="309.0" GridPane.columnSpan="5" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
    </children>
 </GridPane>

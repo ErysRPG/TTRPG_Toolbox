@@ -61,7 +61,7 @@
           <Button fx:id="journalEdit" onAction="#editEntry" text="Edit Entry" />
                <Button fx:id="saveEntry" mnemonicParsing="false" onAction="#saveEntry" text="Save edited Entry" />
           <Button fx:id="journalDelete" onAction="#deleteEntry" text="Delete Entry" />
-               <Button fx:id="searchEntry" mnemonicParsing="false" onAction="#searchEntry" text="Seach entry by Title" />
+               <Button fx:id="searchEntry" mnemonicParsing="false" onAction="#searchEntry" text="Search Entry by Title / Date" />
         </children>
       </HBox>
          <Label fx:id="infoLabel" alignment="CENTER" contentDisplay="CENTER" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
