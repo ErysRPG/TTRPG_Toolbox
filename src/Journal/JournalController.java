@@ -127,38 +127,42 @@ public class JournalController {
 	public void searchEntry() {
 	    try {
 	    	
-	    	
+	    	// if list is null notify the user
 	        if (entryList == null || entryList.getItems() == null) {
 	            infoLabel.setText("Add content before searching");
 	            return;
 	        }
-
+	        // gets title, content and date
 	        String title = journalEntryTitle.getText();
 	        LocalDate selectedDate = date.getValue();
 	        String formattedDate = null;
-
+	        // formats the date if it's not null
 	        if (selectedDate != null) {
 	            DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 	            formattedDate = selectedDate.format(format);
 	        }
-
+	        // onle list is the original list, the other one will store the results
 	        ObservableList<JournalEntry> list = entryList.getItems();
 	        ObservableList<JournalEntry> filteredList = FXCollections.observableArrayList();
-
+	        
+	        // iterates through the original list
 	        for (JournalEntry entry : list) {
+	        	
+	        	//for each entry, if the title and date aren't null store them, or leave empty if null
 	            String entryTitle = entry.getTitle() != null ? entry.getTitle().toLowerCase() : "";
 	            String entryDate = entry.getDate() != null ? entry.getDate() : "";
-
+	            
+	            // if they're not null or empty and the list's data match usser input, store that in a variable
 	            boolean matchesTitle = title != null && !title.isEmpty() && entryTitle.contains(title.toLowerCase());
 	            boolean matchesDate = formattedDate != null && entryDate.contains(formattedDate);
-
+	            
+	            // if there are coincidences the filter list gets populated
 	            if (matchesTitle || matchesDate) {
 	                filteredList.add(entry);
 	            }
 	        }
-
+	        	// is the filtered list is empty, notify the user
 	        if (filteredList.isEmpty()) {
-	            entryList.getItems().clear();
 	            infoLabel.setText("No coincidences found");
 	        } else {
 	            entryList.setItems(filteredList);
