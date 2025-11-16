@@ -5,7 +5,7 @@ import java.time.LocalDate;
 public class JournalEntry {
 private String title;
 private String content;
-private LocalDate date;
+private String date;
 
 public String getTitle() {
 	return title;
@@ -23,19 +23,19 @@ public void setContent(String content) {
 	this.content = content;
 }
 
-public LocalDate getDate() {
+public String getDate() {
 	return date;
 }
 
-public void setDate(LocalDate date) {
+public void setDate(String date) {
 	this.date = date;
 }
 
-public JournalEntry(String title, String content, LocalDate date) {
+public JournalEntry(String title, String content, String formattedDate) {
 	super();
 	this.title = title;
 	this.content = content;
-	this.date = date;
+	this.date = formattedDate;
 }
 
 @Override
