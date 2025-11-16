@@ -41,7 +41,7 @@
 
       <HBox spacing="10" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
         <children>
-          <TextArea fx:id="tableItems" promptText="Enter items separated by commas and add a space after them, like this: (, ), " HBox.hgrow="ALWAYS" />
+          <TextArea fx:id="tableItems" promptText="Enter items separated by commas and add a space after them, like this: (, ), " wrapText="true" HBox.hgrow="ALWAYS" />
           <ListView fx:id="tableList" HBox.hgrow="ALWAYS" />
         </children>
       </HBox>

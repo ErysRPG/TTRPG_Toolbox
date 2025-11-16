@@ -51,7 +51,7 @@
 
         <DatePicker fx:id="date" promptText="Press button, select date" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.vgrow="ALWAYS" />
 
-        <TextArea fx:id="journalTextArea" promptText="Write your entry here..." GridPane.columnSpan="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS" />
+        <TextArea fx:id="journalTextArea" promptText="Write your entry here..." wrapText="true" GridPane.columnSpan="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS" />
       </GridPane>
 
       <!-- Botones -->

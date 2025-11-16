@@ -2,6 +2,9 @@ package CharacterSheet;
 
 import java.util.ArrayList;
 
+import javafx.collections.ObservableList;
+import javafx.scene.Node;
+
 public class Character {
 
 private String name;
@@ -9,9 +12,123 @@ private String CharacterClass;
 private String species;
 private int HealthPoints;
 private int MagicPoints;
-private ArrayList<Stat> stats;
+private ObservableList<Node> stats;
+private String skills;
+private String equipment;
+private String backstory;
+
+
+
+public String getName() {
+	return name;
+}
+
+
+
+public void setName(String name) {
+	this.name = name;
+}
+
+
+
+public String getCharacterClass() {
+	return CharacterClass;
+}
+
+
+
+public void setCharacterClass(String characterClass) {
+	CharacterClass = characterClass;
+}
+
+
+
+public String getSpecies() {
+	return species;
+}
+
+
+
+public void setSpecies(String species) {
+	this.species = species;
+}
+
+
+
+public int getHealthPoints() {
+	return HealthPoints;
+}
+
+
+
+public void setHealthPoints(int healthPoints) {
+	HealthPoints = healthPoints;
+}
+
+
+
+public int getMagicPoints() {
+	return MagicPoints;
+}
+
+
+
+public void setMagicPoints(int magicPoints) {
+	MagicPoints = magicPoints;
+}
+
+
+
+public ObservableList<Node> getStats() {
+	return stats;
+}
+
+
+
+public void setStats(ObservableList<Node> stats) {
+	this.stats = stats;
+}
+
+
+
+public String getSkills() {
+	return skills;
+}
+
+
+
+public void setSkills(String skills) {
+	this.skills = skills;
+}
+
+
+
+public String getEquipment() {
+	return equipment;
+}
+
+
+
+public void setEquipment(String equipment) {
+	this.equipment = equipment;
+}
+
+
+
+public String getBackstory() {
+	return backstory;
+}
+
+
+
+public void setBackstory(String backstory) {
+	this.backstory = backstory;
+}
+
+
+
 public Character(String name, String characterClass, String species, int healthPoints, int magicPoints,
-		ArrayList<Stat> stats) {
+		ObservableList<Node> stats, String skills, String equipment, String backstory) {
 	super();
 	this.name = name;
 	CharacterClass = characterClass;
@@ -19,43 +136,12 @@ public Character(String name, String characterClass, String species, int healthP
 	HealthPoints = healthPoints;
 	MagicPoints = magicPoints;
 	this.stats = stats;
+	this.skills = skills;
+	this.equipment = equipment;
+	this.backstory = backstory;
 }
-public String getName() {
-	return name;
-}
-public void setName(String name) {
-	this.name = name;
-}
-public String getCharacterClass() {
-	return CharacterClass;
-}
-public void setCharacterClass(String characterClass) {
-	CharacterClass = characterClass;
-}
-public String getSpecies() {
-	return species;
-}
-public void setSpecies(String species) {
-	this.species = species;
-}
-public int getHealthPoints() {
-	return HealthPoints;
-}
-public void setHealthPoints(int healthPoints) {
-	HealthPoints = healthPoints;
-}
-public int getMagicPoints() {
-	return MagicPoints;
-}
-public void setMagicPoints(int magicPoints) {
-	MagicPoints = magicPoints;
-}
-public ArrayList<Stat> getStats() {
-	return stats;
-}
-public void setStats(ArrayList<Stat> stats) {
-	this.stats = stats;
-}
+
+
 
 @Override
 public String toString() {
