@@ -204,12 +204,6 @@ public class tablesController {
 				    }
 				});
 
-
-
-
-				
-				
-
 			}
 
 		} catch (Exception e) {

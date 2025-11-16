@@ -49,7 +49,7 @@
 
         <TextField fx:id="journalEntryTitle" promptText="Entry Title" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.vgrow="ALWAYS" />
 
-        <DatePicker fx:id="date" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.vgrow="ALWAYS" />
+        <DatePicker fx:id="date" promptText="Press button, select date" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.vgrow="ALWAYS" />
 
         <TextArea fx:id="journalTextArea" promptText="Write your entry here..." GridPane.columnSpan="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS" />
       </GridPane>
@@ -59,6 +59,7 @@
         <children>
           <Button fx:id="journalAdd" onAction="#addEntry" text="Add Entry" />
           <Button fx:id="journalEdit" onAction="#editEntry" text="Edit Entry" />
+               <Button fx:id="saveEntry" mnemonicParsing="false" onAction="#saveEntry" text="Save edited Entry" />
           <Button fx:id="journalDelete" onAction="#deleteEntry" text="Delete Entry" />
                <Button fx:id="searchEntry" mnemonicParsing="false" onAction="#searchEntry" text="Seach entry by Title" />
         </children>
