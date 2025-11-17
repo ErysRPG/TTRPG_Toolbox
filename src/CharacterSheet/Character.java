@@ -12,7 +12,7 @@ private String CharacterClass;
 private String species;
 private int HealthPoints;
 private int MagicPoints;
-private ObservableList<Node> stats;
+private String stats;
 private String skills;
 private String equipment;
 private String backstory;
@@ -79,13 +79,13 @@ public void setMagicPoints(int magicPoints) {
 
 
 
-public ObservableList<Node> getStats() {
+public String getStats() {
 	return stats;
 }
 
 
 
-public void setStats(ObservableList<Node> stats) {
+public void setStats(String stats) {
 	this.stats = stats;
 }
 
@@ -128,18 +128,18 @@ public void setBackstory(String backstory) {
 
 
 public Character(String name, String characterClass, String species, int healthPoints, int magicPoints,
-		ObservableList<Node> stats, String skills, String equipment, String backstory) {
-	super();
-	this.name = name;
-	CharacterClass = characterClass;
-	this.species = species;
-	HealthPoints = healthPoints;
-	MagicPoints = magicPoints;
-	this.stats = stats;
-	this.skills = skills;
-	this.equipment = equipment;
-	this.backstory = backstory;
+       String stats, String skills, String equipment, String backstory) {
+this.name = name;
+this.CharacterClass = characterClass;
+this.species = species;
+this.HealthPoints = healthPoints;
+this.MagicPoints = magicPoints;
+this.stats = stats;
+this.skills = skills;
+this.equipment = equipment;
+this.backstory = backstory;
 }
+
 
 
 
