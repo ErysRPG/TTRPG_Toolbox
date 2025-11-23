@@ -32,9 +32,16 @@ public class JournalController {
 	private Button tableAddButton, tableEditButton, tableDeleteButton, deleteTableButton, tableRollButton;
 	@FXML
 	private ListView<JournalEntry> entryList;
-
 	@FXML
 	private Label infoLabel;
+
+	public List<JournalEntry> getEntries() {
+        return new ArrayList<>(entryList.getItems());
+    }
+
+    public void setEntries(List<JournalEntry> entries) {
+        entryList.getItems().setAll(entries);
+    }
 
 	public void addEntry() {
 		try {
@@ -195,20 +202,22 @@ public class JournalController {
 	
 
 	public void saveJournalData(BufferedWriter bw) throws IOException {
-	    for (JournalEntry entry : entryList.getItems()) {
-	        bw.write("===JOURNAL===\n");
-	        bw.write(entry.getTitle() + ";" + entry.getDate() + ";" + entry.getContent() + "\n");
-	    }
-	}
+        for (JournalEntry e : entryList.getItems()) {
+            bw.write("===JOURNAL===\n");
+            bw.write(e.getTitle() + ";" + e.getDate() + ";" + e.getContent() + "\n");
+        }
+    }
 
-	public void loadJournalData(BufferedReader br) throws IOException {
-	    String line;
-	    while ((line = br.readLine()) != null) {
-	        if (line.startsWith("===JOURNAL===")) continue;
-	        String[] parts = line.split(";");
-	        if (parts.length == 3) {
-	            entryList.getItems().add(new JournalEntry(parts[0], parts[1], parts[2]));
-	        }
-	    }
-	}
-	}
+    public void loadJournalData(BufferedReader br) throws IOException {
+        entryList.getItems().clear();
+        String line;
+        while ((line = br.readLine()) != null) {
+            if (line.startsWith("===JOURNAL===")) continue;
+            String[] parts = line.split(";");
+            if (parts.length == 3) {
+                entryList.getItems().add(new JournalEntry(parts[0], parts[2], parts[1]));
+            }
+        }
+    }
+}
+

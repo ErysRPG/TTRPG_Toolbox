@@ -16,5 +16,6 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/glsga/Downloads/gson-2.13.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

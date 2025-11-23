@@ -216,4 +216,11 @@ public class CharacterController {
 
 
 
+	public void saveCharacterData(BufferedWriter bw) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
 }

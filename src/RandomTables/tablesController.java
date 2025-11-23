@@ -1,5 +1,6 @@
 package RandomTables;
 
+import java.io.BufferedWriter;
 import java.util.ArrayList;
 
 import java.util.Arrays;
@@ -215,6 +216,11 @@ public class tablesController {
 	
 	public ObservableList<RandomTable> getTables() {
 	    return tableList.getItems();
+	}
+
+	public void saveTablesData(BufferedWriter bw) {
+		// TODO Auto-generated method stub
+		
 	}
 
 
