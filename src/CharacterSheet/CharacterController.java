@@ -1,37 +1,41 @@
 package CharacterSheet;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+
 import java.util.Arrays;
 import java.util.List;
 
-import RandomTables.RandomTable;
+import SaveLoad.saveLoadController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TextInputControl;
-import javafx.scene.layout.GridPane;
+
+
+import SaveLoad.saveLoadController;
 
 public class CharacterController {
+
 
 	@FXML
 	private TextField characterName, characterSpecies, characterClass, hp, mp;
 	@FXML
 	private Button addCharacter, editCharacter, deleteCharacter, saveCharacter, searchCharacter;
 	@FXML
-	private ListView<Character> characterList;
+	public ListView<Character> characterList;
 	@FXML
 	private TextArea skillsArea, equipmentArea, backstoryArea, statArea;
 
 	@FXML
 	private Label infoLabel;
-
-	private ArrayList<Stat> statList = new ArrayList<>();
 	
 
 	public void addCharacter() {
@@ -69,7 +73,7 @@ public class CharacterController {
 		    }} catch (NumberFormatException e) {
 		        infoLabel.setText("HP and MP must be >= 0");
 		    } catch (Exception e) {
-		        infoLabel.setText("Error adding character");
+		       
 		    }
 	}
 
@@ -198,11 +202,18 @@ public class CharacterController {
 
 					}
 					
+					 
+					
 		}catch (Exception e) {
 			infoLabel.setText("Enter a name to search for characters");
 			e.printStackTrace();
 					}
-
 	}
+	
+	public List<Character> getCharacters() {
+        return characterList.getItems();
+    }
+
+
 
 }

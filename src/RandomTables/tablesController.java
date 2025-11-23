@@ -209,6 +209,14 @@ public class tablesController {
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
+		
+		
 	}
+	
+	public ObservableList<RandomTable> getTables() {
+	    return tableList.getItems();
+	}
+
+
 
 }

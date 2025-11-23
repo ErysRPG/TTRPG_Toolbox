@@ -3,6 +3,7 @@ package Journal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.List;
 
 import RandomTables.RandomTable;
 import javafx.collections.FXCollections;
@@ -188,4 +189,9 @@ public class JournalController {
 	        infoLabel.setText("Introduce title/date to search for entries");
 	    }
 	}
+	
+
+    public ObservableList<JournalEntry> getEntries() {
+        return entryList.getItems();
+    }
 	}
