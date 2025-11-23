@@ -31,10 +31,9 @@
         <RowConstraints percentHeight="20" vgrow="ALWAYS" />
       </rowConstraints>
 
-      <!-- Lista de entradas -->
+      
       <ListView fx:id="entryList" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS" />
 
-      <!-- Área de entrada -->
       <GridPane hgap="10" vgap="10" GridPane.columnIndex="0" GridPane.rowIndex="0">
         <columnConstraints>
           <ColumnConstraints hgrow="ALWAYS" percentWidth="33.33" />
@@ -54,7 +53,7 @@
         <TextArea fx:id="journalTextArea" promptText="Write your entry here..." wrapText="true" GridPane.columnSpan="3" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS" />
       </GridPane>
 
-      <!-- Botones -->
+      
       <HBox alignment="CENTER" spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="1">
         <children>
           <Button fx:id="journalAdd" onAction="#addEntry" text="Add Entry" />

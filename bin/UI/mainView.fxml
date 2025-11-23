@@ -25,13 +25,13 @@
     </content>
 </Tab>
 
-  <Tab text="Character Sheet">
+  
+<Tab text="Characters">
     <content>
-        <fx:include source="../CharacterSheet/characterView.fxml" fx:id="characterView"/>
+        <fx:include source="../CharacterSheet/characterView.fxml" fx:id="characterController"/>
     </content>
 </Tab>
-
-<Tab text="Random Tables">
+<Tab text="Tables">
     <content>
         <fx:include source="../RandomTables/tablesView.fxml" fx:id="tablesController"/>
     </content>
@@ -43,7 +43,11 @@
     </content>
 </Tab>
 
-  
+<Tab text="Save/Load">
+    <content>
+        <fx:include source="../SaveLoad/saveLoadView.fxml"/>
+    </content>
+</Tab>
 
 <Tab closable="false" text="Save / Load Data">
          <content>

@@ -1,5 +1,8 @@
 package Journal;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -191,7 +194,21 @@ public class JournalController {
 	}
 	
 
-    public ObservableList<JournalEntry> getEntries() {
-        return entryList.getItems();
-    }
+	public void saveJournalData(BufferedWriter bw) throws IOException {
+	    for (JournalEntry entry : entryList.getItems()) {
+	        bw.write("===JOURNAL===\n");
+	        bw.write(entry.getTitle() + ";" + entry.getDate() + ";" + entry.getContent() + "\n");
+	    }
+	}
+
+	public void loadJournalData(BufferedReader br) throws IOException {
+	    String line;
+	    while ((line = br.readLine()) != null) {
+	        if (line.startsWith("===JOURNAL===")) continue;
+	        String[] parts = line.split(";");
+	        if (parts.length == 3) {
+	            entryList.getItems().add(new JournalEntry(parts[0], parts[1], parts[2]));
+	        }
+	    }
+	}
 	}

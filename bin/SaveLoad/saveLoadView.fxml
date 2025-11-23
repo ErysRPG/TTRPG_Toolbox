@@ -24,6 +24,6 @@
 
     <Button fx:id="saveData" onAction="#saveData" text="Save Data" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
 
-    <Button fx:id="loadData" onAction="#LoadData" text="Load Data" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+    <Button fx:id="loadData" onAction="#loadData" text="Load Data" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
   </children>
 </GridPane>
