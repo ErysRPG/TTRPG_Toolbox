@@ -6,11 +6,8 @@ import java.io.FileWriter;
 import java.io.FileReader;
 import java.io.IOException;
 
-import CharacterSheet.Character;
 import CharacterSheet.CharacterController;
 import Journal.JournalController;
-import Journal.JournalEntry;
-import RandomTables.RandomTable;
 import RandomTables.tablesController;
 
 import javafx.fxml.FXML;
@@ -30,32 +27,20 @@ public class saveLoadController {
     private JournalController journalController;
     private tablesController tablesController;
 
-    public void setPrimaryStage(Stage stage) {
-        this.primaryStage = stage;
-    }
-
-    public void setCharacterController(CharacterController cc) {
-        this.characterController = cc;
-    }
-
-    public void setJournalController(JournalController jc) {
-        this.journalController = jc;
-    }
-
-    public void setTablesController(tablesController tc) {
-        this.tablesController = tc;
-    }
+    public saveLoadController() {}
+    
+    public void setPrimaryStage(Stage stage) { this.primaryStage = stage; }
+    public void setCharacterController(CharacterController cc) { this.characterController = cc; }
+    public void setJournalController(JournalController jc) { this.journalController = jc; }
+    public void setTablesController(tablesController tc) { this.tablesController = tc; }
 
     private static final Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-    // Save everything into one file
     @FXML
     public void saveData() throws IOException {
         FileChooser fc = new FileChooser();
         fc.setTitle("Save data");
         fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("JSON files", "*.json"));
-        fc.setInitialDirectory(new File(System.getProperty("user.home"), "Desktop"));
-
         File file = fc.showSaveDialog(primaryStage);
 
         if (file != null) {
@@ -72,14 +57,11 @@ public class saveLoadController {
         }
     }
 
-    // Load everything from one file
     @FXML
     public void loadData() throws IOException {
         FileChooser fc = new FileChooser();
         fc.setTitle("Load data");
         fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("JSON files", "*.json"));
-        fc.setInitialDirectory(new File(System.getProperty("user.home"), "Desktop"));
-
         File file = fc.showOpenDialog(primaryStage);
 
         if (file != null) {

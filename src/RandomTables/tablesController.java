@@ -34,7 +34,7 @@ public class tablesController {
 	@FXML
 	private Button tableAddButton, tableEditButton, tableDeleteButton, deleteTableButton, tableRollButton;
 	@FXML
-	private static ListView<RandomTable> tableList;
+	private ListView<RandomTable> tableList;
 
 	public void addTable() {
 		try {
@@ -222,13 +222,15 @@ public class tablesController {
 	}
 
 
-	public static java.util.List<RandomTable> getItems() {
-	    return new java.util.ArrayList<>(tableList.getItems());
-	}
+	public java.util.List<RandomTable> getItems() {
+        return new java.util.ArrayList<>(tableList.getItems());
+    }
 
-	public static void setItems(java.util.List<RandomTable> newItems) {
-	    tableList.getItems().setAll(newItems);
-	}
+    public void setItems(java.util.List<RandomTable> newItems) {
+        tableList.getItems().setAll(newItems);
+    }
+
+
 
 
 
