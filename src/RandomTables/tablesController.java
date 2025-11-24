@@ -12,6 +12,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
+import CharacterSheet.Character;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -33,7 +34,7 @@ public class tablesController {
 	@FXML
 	private Button tableAddButton, tableEditButton, tableDeleteButton, deleteTableButton, tableRollButton;
 	@FXML
-	private ListView<RandomTable> tableList;
+	private static ListView<RandomTable> tableList;
 
 	public void addTable() {
 		try {
@@ -213,14 +214,20 @@ public class tablesController {
 		
 		
 	}
+
+
 	
 	public ObservableList<RandomTable> getTables() {
 	    return tableList.getItems();
 	}
 
-	public void saveTablesData(BufferedWriter bw) {
-		// TODO Auto-generated method stub
-		
+
+	public static java.util.List<RandomTable> getItems() {
+	    return new java.util.ArrayList<>(tableList.getItems());
+	}
+
+	public static void setItems(java.util.List<RandomTable> newItems) {
+	    tableList.getItems().setAll(newItems);
 	}
 
 

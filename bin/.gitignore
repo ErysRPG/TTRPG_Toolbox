@@ -18,4 +18,8 @@ Thumbs.db
 *.tmp
 
 
+/CharacterSheet/
 /SaveLoad/
+/RandomTables/
+/Journal/
+/UI/

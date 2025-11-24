@@ -209,17 +209,20 @@ public class CharacterController {
 			e.printStackTrace();
 					}
 	}
-	
-	public List<Character> getCharacters() {
-        return characterList.getItems();
-    }
 
 
 
-	public void saveCharacterData(BufferedWriter bw) {
-		// TODO Auto-generated method stub
-		
+	public List<Character> getItems() {
+	    return new ArrayList<>(characterList.getItems());
 	}
+
+	public void setItems(List<Character> newItems) {
+	    characterList.getItems().setAll(newItems);
+	}
+
+
+
+
 
 
 

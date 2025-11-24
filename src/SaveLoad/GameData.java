@@ -1,51 +1,37 @@
 package SaveLoad;
 
 import java.util.List;
-
 import CharacterSheet.Character;
 import Journal.JournalEntry;
 import RandomTables.RandomTable;
-
+import javafx.scene.control.ListView;
 
 public class GameData {
-    
-    private List<Character> characters; 
-    private List<JournalEntry> journalEntries; 
-    private List<RandomTable> tables; 
+    private List<Character> characters;
+    private List<JournalEntry> journalEntries;
+    private List<RandomTable> tables;
 
-    public GameData() {
+    public GameData() {}
+
+    // Getters y setters
+    public List<Character> getCharacters() {
+        return characters;
+    }
+    public void setCharacters(List<Character> characterList) {
+        this.characters = characterList;
     }
 
-   // Saving constructor
-    public GameData(List<Character> characters, List<JournalEntry> journalEntries, List<RandomTable> tables) {
-        this.characters = characters;
-        this.journalEntries = journalEntries;
-        this.tables = tables;
+    public List<JournalEntry> getJournalEntries() {
+        return journalEntries;
+    }
+    public void setJournals(List<JournalEntry> list) {
+        this.journalEntries = list;
     }
 
-	public List<Character> getCharacters() {
-		return characters;
-	}
-
-	public void setCharacters(List<Character> characters) {
-		this.characters = characters;
-	}
-
-	public List<JournalEntry> getJournalEntries() {
-		return journalEntries;
-	}
-
-	public void setJournalEntries(List<JournalEntry> journalEntries) {
-		this.journalEntries = journalEntries;
-	}
-
-	public List<RandomTable> getTables() {
-		return tables;
-	}
-
-	public void setTables(List<RandomTable> tables) {
-		this.tables = tables;
-	}
+    public List<RandomTable> getTables() {
+        return tables;
+    }
+    public void setTables(List<RandomTable> tablesList) {
+        this.tables = tablesList;
+    }
 }
-    
-

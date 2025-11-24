@@ -201,23 +201,18 @@ public class JournalController {
 	}
 	
 
-	public void saveJournalData(BufferedWriter bw) throws IOException {
-        for (JournalEntry e : entryList.getItems()) {
-            bw.write("===JOURNAL===\n");
-            bw.write(e.getTitle() + ";" + e.getDate() + ";" + e.getContent() + "\n");
-        }
+
+	
+    public java.util.List<JournalEntry> getItems() {
+        return new java.util.ArrayList<>(entryList.getItems());
     }
 
-    public void loadJournalData(BufferedReader br) throws IOException {
-        entryList.getItems().clear();
-        String line;
-        while ((line = br.readLine()) != null) {
-            if (line.startsWith("===JOURNAL===")) continue;
-            String[] parts = line.split(";");
-            if (parts.length == 3) {
-                entryList.getItems().add(new JournalEntry(parts[0], parts[2], parts[1]));
-            }
-        }
+    public void setItems(java.util.List<JournalEntry> newItems) {
+        entryList.getItems().setAll(newItems);
     }
 }
+
+
+
+
 

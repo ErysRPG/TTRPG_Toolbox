@@ -1,6 +1,7 @@
 package CharacterSheet;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
@@ -147,4 +148,5 @@ this.backstory = backstory;
 public String toString() {
 	return name;
 }
+
 }
