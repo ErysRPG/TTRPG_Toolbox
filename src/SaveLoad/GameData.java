@@ -5,7 +5,7 @@ import java.util.List;
 import CharacterSheet.Character;
 import Journal.JournalEntry;
 import RandomTables.RandomTable;
-
+// data-saving class
 public class GameData {
     private List<Character> characters;
     private List<JournalEntry> journalEntries;

@@ -1,9 +1,5 @@
 package UI;
 
-import CharacterSheet.CharacterController;
-import Journal.JournalController;
-import RandomTables.tablesController;
-import SaveLoad.saveLoadController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -21,6 +17,7 @@ public class Main extends Application {
             // load primary view
             FXMLLoader mainLoader = new FXMLLoader(getClass().getResource("mainView.fxml"));
             Parent root = mainLoader.load();
+            MainController mainController = mainLoader.getController();
             Scene scene = new Scene(root);
             primaryStage.setTitle("TTRPG Toolbox");
             scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
@@ -28,29 +25,8 @@ public class Main extends Application {
             primaryStage.getIcons().add(image);
             primaryStage.show();
 
-            // load controllers
-            FXMLLoader characterLoader = new FXMLLoader(getClass().getResource("/CharacterSheet/characterView.fxml"));
-            characterLoader.load();
-            CharacterController characterController = characterLoader.getController();
-
-            FXMLLoader journalLoader = new FXMLLoader(getClass().getResource("/Journal/journalView.fxml"));
-            journalLoader.load();
-            JournalController journalController = journalLoader.getController();
-
-            FXMLLoader tablesLoader = new FXMLLoader(getClass().getResource("/RandomTables/tablesView.fxml"));
-            tablesLoader.load();
-            tablesController tablesController = tablesLoader.getController();
-
-            // load save controller
-            FXMLLoader saveLoader = new FXMLLoader(getClass().getResource("/SaveLoad/saveLoadView.fxml"));
-            saveLoader.load();
-            saveLoadController saveCtrl = saveLoader.getController();
-
-            // pass references
-            saveCtrl.setPrimaryStage(primaryStage);
-            saveCtrl.setCharacterController(characterController);
-            saveCtrl.setJournalController(journalController);
-            saveCtrl.setTablesController(tablesController);
+            //call the initialization into the main controller
+            mainController.initializeControllers(primaryStage);
 
         } catch (Exception e) {
             e.printStackTrace();

@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Main">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.MainController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -21,31 +21,31 @@
   
   <Tab closable="false" text="Dice Roller">
     <content>
-        <fx:include source="../DiceRoller/diceView.fxml" />
+        <fx:include fx:id="diceView" source="../DiceRoller/diceView.fxml" />
     </content>
 </Tab>
 
   
 <Tab text="Character Sheet">
     <content>
-        <fx:include source="../CharacterSheet/characterView.fxml"/>
+        <fx:include fx:id="characterView" source="../CharacterSheet/characterView.fxml"/>
     </content>
 </Tab>
 <Tab text="Random Tables">
     <content>
-        <fx:include source="../RandomTables/tablesView.fxml"/>
+        <fx:include fx:id="tablesView" source="../RandomTables/tablesView.fxml"/>
     </content>
 </Tab>
 
 <Tab text="Journal">
     <content>
-        <fx:include source="../Journal/journalView.fxml"/>
+        <fx:include fx:id="journalView" source="../Journal/journalView.fxml"/>
     </content>
 </Tab>
 
 <Tab closable="false" text="Save / Load Data">
          <content>
-            <fx:include source="../SaveLoad/saveLoadView.fxml" />
+            <fx:include fx:id="saveLoadView" source="../SaveLoad/saveLoadView.fxml" />
          </content>
 </Tab>
 </TabPane>
